@@ -1,10 +1,15 @@
 .header {
   position: relative;
+  animation: fadeIn 1s ease forwards;
+  opacity: 0;
 
   &__nav {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 100;
+    animation: fadeInLeft 1s ease 2s forwards;
+    opacity: 0;
 
     &--logo {
       position: absolute;
@@ -29,7 +34,6 @@
         opacity: 1;
         bottom: 11rem;
         left: 25rem;
-        z-index: 100;
       }
 
       img {
@@ -42,7 +46,6 @@
       bottom: 0;
       left: 0;
       list-style: none;
-      z-index: 100;
       transition: all 300ms ease;
     }
     &--item {
@@ -75,11 +78,16 @@
     ),
     url("../img/back.jpg");
   background-size: cover;
-  background-position: left;
+  background-position: center;
+
+  @include respond(phone) {
+    background-position: 56%;
+  }
 }
 
 .showcase {
   position: absolute;
+  opacity: 0;
   top: 50%;
   left: 20%;
   &__main {
@@ -91,11 +99,19 @@
     font-size: 3rem;
     color: $color-yellow;
   }
+  animation: fadeInRight 1s ease 1s forwards;
 }
 
 #about {
   height: 100vh;
   display: flex;
+  flex-flow: column;
   justify-content: center;
   align-items: center;
+  h1 {
+    font-size: 4rem;
+  }
+  p {
+    font-size: 1.7rem;
+  }
 }
